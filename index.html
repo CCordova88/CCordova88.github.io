@@ -6,6 +6,7 @@
         <title>Cameron Cordova</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="./CSS/portfolio_site.css">
+        <script src="./JS/portfolio.js" defer></script>
     </head>
 
     <!-- BODY -->
@@ -14,17 +15,18 @@
         <!-- NAVBAR -->
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href="#slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#git">GitHub</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
         </div>
 
         <!-- HOME -->
+        <div id="home">
             <br> <!-- BREAKS USED TO ADD SPACE BETWEEN NAVBAR AND FIRST HEADING -->
             <br>
 
         <!-- VIDEO -->
-        <div id="home">
             <video autoplay muted loop id="video">
                 <source src="./Video/Source Code - 4733.mp4" type="video/mp4">
                 Your browser does not support HTML5 video.
@@ -55,6 +57,65 @@
             </p>
         </div>
 
+        <!-- SLIDESHOW SECTION -->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">1 / 6</div>
+                        <img class="slide_show_images" src="./Images/myphoto.jpg" style="width: 100%;">
+                        <div class="text">It would be an absolute pleasure to assist you with your project.</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">2 / 6</div>
+                        <img class="slide_show_images" src="./Images/HTML_CSS_and_JavaScript.jpeg" style="width: 100%;">
+                        <div class="text">I am a full-stack developer,<br> trained in:<br>HTML, CSS, Javascript,</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">3 / 6</div>
+                        <img class="slide_show_images" src="./Images/Python.png" style="width: 100%;">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">4 / 6</div>
+                        <img class="slide_show_images" src="./Images/C_Sharp_and_Dot_NET.png" style="width: 100%;">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">5 / 6</div>
+                        <img class="slide_show_images" src="./Images/SQL_and_Database.jpg" style="width: 100%;">
+                        <div class="text">back end development, databases and SQL.</div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="slide_number">6 / 6</div>
+                        <img class="slide_show_images" src="./Images/Coding_1.jpg" style="width: 100%;">
+                        <div class="text">
+                            <a onclick="openForm()" href="#contact" style="color: white;">I can't wait to hear from you!</a>
+                        </div>
+                    </div>
+
+                    <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
+        </div>
+
         <!-- ABOUT SECTION -->
         <div class="row" id="about">
              <div class="about_column_2"> <!-- LEFT COLUMN -->
@@ -75,7 +136,6 @@
                       <br>-Stephen Hawking<br>
                     <br> I am currently a student of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>'s Software Developer Boot Camp. Upon completion of the boot camp, 
                     I will be a full-stack developer with experience and training in the folowing programming languages: HTML, CSS, Javascript, SQL, C# and more.
-                    
                 </p>
              </div>
         </div>
@@ -95,21 +155,22 @@
         </div>
 
         <!-- CONTACT SECTION -->
-        <div class="row" id="contact">
-             <div class="column_3"> <!-- CONTACT IMAGE, LEFT -->
-                <img src="./Images/Contact.jpg" alt="">
-            </div>
+        <div id="contact">
+            <button onclick="openForm()" class="pop_up_button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                    <label for="name"><b>Name:</b></label>
+                    <input type="text" placeholder="Please enter your name here" name="name" required>
+                    <label for="phone"><b>Phone Number:</b></label>
+                    <input type="text" placeholder="Please enter your phone number here" name="phone">
+                    <label for="email"><b>Email:</b></label>
+                    <input type="text" placeholder="Please enter your email address here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                    <input type="text" placeholder="Please write your message here" name="message">
 
-            <div class="column_1"> <!-- CONTACT FORM, RIGHT -->
-                <h1>Contact</h1>
-                <form action="" method="get">
-                    <label>Name:</label>
-                    <input type="text" placeholder="Please enter your name here">
-                    <label>Email:</label>
-                    <input type="text" placeholder="Please enter your email address here">
-                    <label>Message</label>
-                    <input type="text" placeholder="Please write your message here">
-                    <input type="submit" value="SUBMIT">
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
