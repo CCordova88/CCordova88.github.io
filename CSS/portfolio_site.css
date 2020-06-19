@@ -115,7 +115,7 @@ body.fade-out {
 
 /* SLIDESHOW */
 #slideshow_background {
-    background: rgba(255,255,255, 0.35);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .mySlides {
